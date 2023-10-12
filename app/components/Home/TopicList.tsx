@@ -4,24 +4,30 @@ import React from 'react'
 import { news } from '../../../lib/fetchingData';
 import Link from 'next/link';
 
-const TopicList = ({result, cat}: any) => {
-    console.log(cat)
+const TopicList = ({result, category}: any) => {
+    console.log(result)
   return (
-    <div>
+    <>
          <div className='pt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
         {result.map((article: any) => (
-          <div className="text-black pb-4" key={article.title}>
-            <Link href={`/category/${article.title}`}>
-            <img src={article?.urlToImage} alt={article.title} className="rounded-md h-[30vh] w-full" />
+          <div className="text-black pb-2" key={article.title}>
+            <Link href={`/category/${article.title}`} className='relative'>
+              <img src={article?.urlToImage} alt={article.title} className="rounded-md h-[30vh] w-full" />
+              <h1 className='absolute top-2 left-2'>{category}</h1>
             </Link>
-            <p className="pt-3 pb-4">{convertTimestamp(article.publishedAt)}</p>
+            <p className="pt-3 pb-4">{convertTimestamp(article.publishedAt)}</p> 
             <h1 className='font-semibold'>{article.title}</h1>
-            <h1 className='pt-4 line-clamp-3'>{article.description}</h1>
-            {/* <h1 className='pt-4 line-clamp-3'>{cat}</h1> */}
+            <h1 className='pt-4 line-clamp-3 text-base'>{article.description}</h1>
+            
           </div>
         ))}
+        {/* {news.map(({ category }) => (
+          <div className="" key={category}>
+            p. 
+          </div>
+        ))} */}
       </div>
-    </div>
+    </>
   )
 }
 
