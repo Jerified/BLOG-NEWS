@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import { news } from '../../../lib/fetchingData';
+import { news } from '@/lib/fetchingData';
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link';
 import TopicList from './TopicList';
@@ -64,9 +64,9 @@ const Topic =  () => {
           </div>
         ))}
       </div>
-      <Suspense fallback={'loading'}>
+      {/* <Suspense fallback={'loading'}> */}
         <TopicList result={result} category={selectedCategory} />
-      </Suspense>
+      {/* </Suspense> */}
 
       
     </div>
