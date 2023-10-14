@@ -4,7 +4,7 @@ const nextConfig = {
         serverActions: true
     },
     images: {
-        domains: ['assets-prd.ignimgs.com']
+        domains: ["*.newsapi.org"]
     }
 }
 

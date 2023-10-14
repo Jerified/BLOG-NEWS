@@ -7,8 +7,9 @@ const getArticles = async (category: string) => {
     const articlesResponse = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=ee1d85cdcfd24430b4d538ad678aea83`);
     return articlesResponse.data.articles;
   } catch (error) {
-    console.log(error);
-    return []
+    throw new Error("Failed to fetch data")
+    // console.log(error);
+    // return []
   }
 }
 

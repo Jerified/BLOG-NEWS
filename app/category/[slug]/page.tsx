@@ -8,18 +8,18 @@ interface pageProps {
 import type { Metadata } from 'next'
 
 
-export async function generateMetadata({params}: pageProps) {
-  return {
-    title: params.title
-  }
-}
+// export async function generateMetadata({params}: pageProps) {
+//   return {
+//     title: params.title
+//   }
+// }
 
 const page: FC<pageProps> = ({params}) => {
     console.log(params)
   return (
     <>
-      <div className='text-black'>{params.title}</div>
-      <p>hello</p>
+      {/* <div className='text-black'>{params.title}</div> */}
+      <p className='text-3xl text-black'>hello</p>
     </>
   )
 }
