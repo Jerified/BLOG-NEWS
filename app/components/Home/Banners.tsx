@@ -8,7 +8,7 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 
 const Banners = ({ item }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  // console.log(item)
+  const filteredResult = item.filter((article: any) => article.urlToImage !== null)
 
   const prevSlide = () => {
     const firstSlide = currentIndex === 0
@@ -30,7 +30,7 @@ const Banners = ({ item }: any) => {
     <div>
       <div key={item.publishedAt} className=" h-full  relative group">
 
-        <img className='w-full text-black h-[60vh] md:h-[80vh] bg-cover transition-all  duration-500' src={item[currentIndex]?.urlToImage || 'unable to load mage'} alt={item[currentIndex].title} loading='lazy' />
+        <img className='w-full text-black h-[60vh] md:h-[80vh] bg-cover transition-all  duration-500' src={filteredResult[currentIndex]?.urlToImage || 'unable to load mage'} alt={filteredResult[currentIndex].title} loading='lazy' />
         <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer z-50">
             <BsChevronCompactLeft onClick={prevSlide} size={30} />
           </div>
@@ -39,18 +39,18 @@ const Banners = ({ item }: any) => {
           </div>
         <div className="absolute bottom-20 md:bottom-[6rem] text-white px-5 max-w-s md:max-w-[50rem] ">
        
-          <p className="text-2xl font-semibold md:text-3xl lg:text-4xl">{item[currentIndex].title}</p>
+          <p className="text-2xl font-semibold md:text-3xl lg:text-4xl">{filteredResult[currentIndex].title}</p>
           <main className="flex items-start gap-3 pt-5">
             <div className="flex gap-3 items-center">
-              <p className="">{convertTimestamp(item[0].publishedAt)}</p>
+              <p className="">{convertTimestamp(filteredResult[0].publishedAt)}</p>
               <div className='w-[2.5rem] h-[0.11rem] bg-white' />
             </div>
-            <p className="">{item[currentIndex].description}</p>
+            <p className="line-clamp-3">{filteredResult[currentIndex].description}</p>
           </main>
           <div className="flex pt-3">
-            {item.map((slide: any, slideIndex: any) => (
+            {filteredResult.map((slide: any, slideIndex: any) => (
               <div className="cursor-pointer" key={slideIndex} onClick={() => goToSlide(slideIndex)}>
-                <RxDotFilled className={`text-2xl text-white ${ slideIndex === currentIndex  && 'text-black'}`} />
+                <RxDotFilled className={`text-2xl text-white ${ slideIndex === currentIndex  ? 'text-green-500' : ''}`} />
               </div>
             )
             )}

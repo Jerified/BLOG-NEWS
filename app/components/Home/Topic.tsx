@@ -35,6 +35,7 @@ const Topic =  () => {
 
   useEffect(() => {
     const selectedNews = news.find((item) => item.category === selectedCategory);
+
     if (selectedNews) {
           selectedNews.articles().then((articles) => {
             setResult(articles)
@@ -47,7 +48,7 @@ const Topic =  () => {
 
   return (
     <div className='text-black px-5 md:mx-auto lg:py-24 py-12'>
-      <h1 className="text-2xl font-semibold">Popular topics</h1>
+      <h1 className="text-2xl font-semibold md:text-4xl">Popular topics</h1>
       <div className='flex gap-4 pt-6'>
         {news.map(({ category }) => (
           <div className="" key={category}>
@@ -64,9 +65,9 @@ const Topic =  () => {
           </div>
         ))}
       </div>
-      {/* <Suspense fallback={'loading'}> */}
+      <Suspense fallback={<p>Loading...</p>}>
         <TopicList result={result} category={selectedCategory} />
-      {/* </Suspense> */}
+      </Suspense>
 
       
     </div>
