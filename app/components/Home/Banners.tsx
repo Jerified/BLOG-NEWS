@@ -29,7 +29,6 @@ const Banners = ({ item }: any) => {
   return (
     <div>
       <div key={item.publishedAt} className=" h-full  relative group">
-
         <img className='w-full text-black h-[60vh] md:h-[80vh] bg-cover transition-all  duration-500' src={filteredResult[currentIndex]?.urlToImage || 'unable to load mage'} alt={filteredResult[currentIndex].title} loading='lazy' />
         <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer z-50">
             <BsChevronCompactLeft onClick={prevSlide} size={30} />
