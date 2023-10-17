@@ -5,10 +5,12 @@ import { useState } from 'react'
 import { convertTimestamp } from '@/lib/dateFormat'
 import { RxDotFilled } from 'react-icons/rx'
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
+import Image from 'next/image'
+import { TNews } from '@/lib/fetchingData'
 
-const Banners = ({ item }: any) => {
+const Banners = ({ item }: TNews[]) => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const filteredResult = item.filter((article: any) => article.urlToImage !== null)
+  const filteredResult = item.filter((article: TNews[]) => article[urlToImage] !== null)
 
   const prevSlide = () => {
     const firstSlide = currentIndex === 0
@@ -29,7 +31,7 @@ const Banners = ({ item }: any) => {
   return (
     <div>
       <div key={item.publishedAt} className=" h-full  relative group">
-        <img className='w-full text-black h-[60vh] md:h-[80vh] bg-cover transition-all  duration-500' src={filteredResult[currentIndex]?.urlToImage || 'unable to load mage'} alt={filteredResult[currentIndex].title} loading='lazy' />
+        <Image className='w-full text-black h-[60vh] md:h-[80vh] bg-cover transition-all  duration-500' src={filteredResult[currentIndex]?.urlToImage || 'unable to load mage'} alt={filteredResult[currentIndex].title} width={800} height={800} priority />
         <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer z-50">
             <BsChevronCompactLeft onClick={prevSlide} size={30} />
           </div>

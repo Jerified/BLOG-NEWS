@@ -4,7 +4,12 @@ const nextConfig = {
         serverActions: true
     },
     images: {
-        domains: ["*.newsapi.org"]
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '**'
+            }
+        ]
     }
 }
 
