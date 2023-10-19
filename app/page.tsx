@@ -5,7 +5,7 @@ import Topic from './components/Home/Topic'
 
 const Home = () => {
   return (
-    <div className='w-[700px]'>
+    <div className=''>
       <Banner />
       <Topic />
     </div>

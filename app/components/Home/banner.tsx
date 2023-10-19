@@ -16,7 +16,7 @@ const Banner = async () => {
   const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.API_KEY}`
   )
   const item = response.data.articles.slice(0, 5)
-  // console.log(result);
+  console.log(item[0]);
 
   return (
     <div className='relative'>

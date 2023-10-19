@@ -56,9 +56,9 @@ const Topic =  () => {
           </div>
         ))}
       </div> */}
-      <Suspense fallback={<p>Loading...</p>}>
+      {/* <Suspense fallback={<p>Loading...</p>}>
         <TopicList result={result} category={selectedCategory} />
-      </Suspense>
+      </Suspense> */}
 
       
     </div>
