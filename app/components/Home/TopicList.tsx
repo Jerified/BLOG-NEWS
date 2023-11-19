@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { convertTimestamp } from '@/lib/dateFormat'
 import React from 'react'
-import { news } from '../../../lib/fetchingData';
+// import { news } from '../../../lib/fetchingData';
 import Link from 'next/link';
 
 const TopicList = ({result, category}: any) => {

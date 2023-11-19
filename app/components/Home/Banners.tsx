@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { convertTimestamp } from '@/lib/dateFormat'
 import { RxDotFilled } from 'react-icons/rx'
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
+import Link from 'next/link'
 
 const Banners = ({ item }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -36,8 +37,8 @@ const Banners = ({ item }: any) => {
         <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer z-50">
           <BsChevronCompactRight onClick={nextSlide} size={30} />
         </div>
-        <Link href={filteredResult[currentIndex].url} legacyBehavior className="absolute bottom-20 md:bottom-[6rem] text-white px-5 max-w-s md:max-w-[50rem] ">
-          <a target='_blank' className="text-2xl font-semibold md:text-3xl lg:text-4xl">{filteredResult[currentIndex].title}</a>
+        <div className="absolute bottom-20 md:bottom-[6rem] text-white px-5 max-w-s md:max-w-[50rem] ">
+          <Link href={filteredResult[currentIndex].url} target='_blank' className="text-2xl font-semibold md:text-3xl lg:text-4xl">{filteredResult[currentIndex].title}
           <main className="flex items-start gap-3 pt-5">
             <div className="flex gap-3 items-center">
               <p className="">{convertTimestamp(filteredResult[0].publishedAt)}</p>
@@ -45,6 +46,7 @@ const Banners = ({ item }: any) => {
             </div>
             <p className="line-clamp-3">{filteredResult[currentIndex].description}</p>
           </main>
+          </Link>
           <div className="flex pt-3">
             {filteredResult.map((slide: any, slideIndex: any) => (
               <div className="cursor-pointer" key={slideIndex} onClick={() => goToSlide(slideIndex)}>
@@ -55,7 +57,7 @@ const Banners = ({ item }: any) => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
   )
 }
 

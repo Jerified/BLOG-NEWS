@@ -14,3 +14,16 @@ export const getNewsSearch = async (keyword: string) => {
 
     return newsData.json()
 }
+
+
+export const news = [
+    // const me = 
+    {category: 'All', articles: () => getNewsSearch('')},
+    {category: 'Business', articles: () => getNewsSearch('business')},
+    {category: 'Sports', articles: () => getNewsSearch('sports')},
+    {category: 'Entertainment', articles: () => getNewsSearch('entertainment')},
+    {category: 'Technology', articles: () => getNewsSearch('technology')},
+    {category: 'Science', articles: () => getNewsSearch('science')},
+  ];
+
+  console.log(news[1].articles().then((art) => console.log(art)))

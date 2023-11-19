@@ -1,12 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import { news } from '@/lib/fetchingData';
+// import { news } from '@/lib/fetchingData';
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link';
 import TopicList from './TopicList';
 import { Suspense } from 'react';
 import Article from './Article';
+import { news } from '@/app/api/fetchData/route';
 const Topic =  () => {
 
   // const data = {
