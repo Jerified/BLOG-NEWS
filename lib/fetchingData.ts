@@ -12,9 +12,9 @@ export type TNews = {
   content: string
 }
 
-export const removeDuplicate = (articles: TNews[]) => {
-  const randomArticle: TNews[] = articles
-  const filteredArtcles = randomArticle.filter(article => article?.source.id !== null)
-  return filteredArtcles
+// export const removeDuplicate = (articles: TNews[]) => {
+//   const randomArticle: TNews[] = articles
+//   const filteredArtcles = randomArticle.filter(article => article?.source.id !== null)
+//   return filteredArtcles
 
-}
+// }

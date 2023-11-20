@@ -1,6 +1,8 @@
 export const getNewsTopHeadLines = async () => {
     const newsData = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.API_KEY}`, { cache: 'no-store'})
 
+    console.log(newsData)
+
     return newsData.json()
 }
 
